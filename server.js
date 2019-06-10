@@ -13,16 +13,14 @@ const image = require('./controller/image')
 const db = knex({
   client: 'pg',
   connection: {
-    host : 'postgresql-deep-92266',
-    user : '',
-    password : '',
-    database : 'smart-brain'
+    host : process.env.DATABASE_URL,
+    ssl: true,
+   
   }
 });
 const app = express(); //run express
 app.use(cors());
 app.use(bodyParser.json());
-
 app.get('/',(req,res)=>{res.send('it is working??!!')})
 app.post('/SignIn',(req,res) => {signin.handleSignin(req,res,db,bcrypt)})
 app.post('/register', (req,res)  => {register.handleRegister (req,res,db,bcrypt)})
