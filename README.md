@@ -1,4 +1,4 @@
-# Facialweb-Api
+# Facialweb-API
 
 This is API design for my facial recognition web </br>
 
